@@ -3,15 +3,17 @@ import half_time_lib
 import math
 import numpy as np
 
-def calculate_activity(A0, t, half_life):
-    """
-    Calcule l'activité radioactive actuelle.
-    :param A0: activité initiale (float)
-    :param t: temps écoulé (en années) (float)
-    :param half_life: demi-vie de l'isotope (en années) (float)
-    :return: activité radioactive actuelle (float)
-    """
-    return np.float32(A0 * (0.5 ** (t / half_life)))
+# def calculate_activity(A0, t, half_life):
+#     """
+#     Calcule l'activité radioactive actuelle.
+#     :param A0: activité initiale (float)
+#     :param t: temps écoulé (en années) (float)
+#     :param half_life: demi-vie de l'isotope (en années) (float)
+#     :return: activité radioactive actuelle (float)
+#     """
+#     return np.float32(A0 * (0.5 ** (t / half_life)))
+
+import activity_decay_function 
 
 
 if __name__ == "__main__":    
@@ -27,7 +29,7 @@ if __name__ == "__main__":
         current_date = datetime.strptime(current_date_str, "%Y-%m-%d %H:%M:%S")
         t = (current_date - initial_date).total_seconds() / (365.25 * 24 * 3600)  # Convert seconds to years
 
-        current_activity = calculate_activity(A0, t, half_life)
+        current_activity = activity_decay_function.calculate_activity(A0, t, half_life)
         print(f"L'activité radioactive actuelle de {isotope} après {t:.2f} ans est de {current_activity} Bq.")
     else:
         print("Isotope non trouvé dans la bibliothèque.")
