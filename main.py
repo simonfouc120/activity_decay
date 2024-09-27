@@ -1,7 +1,5 @@
 from datetime import datetime
 import half_time_lib
-import math
-import numpy as np
 import activity_decay_function as activity_func 
 
 if __name__ == "__main__":    

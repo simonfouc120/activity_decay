@@ -21,5 +21,5 @@ def calculate_activity(A0, t, half_life):
     :param half_life: demi-vie de l'isotope (en années) (float)
     :return: activité radioactive actuelle (float)
     """
-    return np.float32(A0 * (0.5 ** (t / half_life)))
+    return (A0 * (0.5 ** (t / half_life)))
 

@@ -67,3 +67,10 @@ def get_half_life(isotope):
     :return: demi-vie en années (float) ou None si l'isotope n'est pas trouvé
     """
     return half_life_data.get(isotope)
+
+def get_all_half_life_data():
+    """
+    Retourne toutes les données de demi-vie.
+    :return: dictionnaire contenant toutes les demi-vies
+    """
+    return half_life_data

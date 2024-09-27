@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Decay Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Activity Decay Calculator</h1>
+        <form onsubmit="submitForm(event)">
+            <label for="element">⚛️ Element:</label>
+            <select id="element" name="element"></select>
+            <label for="initial-activity">📈 Initial Activity (Bq):</label>
+            <input type="number" id="initial-activity" name="initial-activity">
+            <label for="start">📅 Start Date:</label>
+            <input type="date" id="start" name="start">
+            <label for="end">📅 End Date:</label>
+            <input type="date" id="end" name="end">
+            <input type="submit" value="Submit">
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
