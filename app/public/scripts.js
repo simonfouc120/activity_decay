@@ -1,5 +1,10 @@
-const URL = 'https://activitydecayapi.vercel.app';
-const URL_LOCAL = 'http://localhost:5000';
+let URL;
+
+async function fetchConfig() {
+    const response = await fetch('/config');
+    const config = await response.json();
+    URL = config.apiUrl;
+}
 
 async function fetchHalfLifeData() {
     const response = await fetch(URL + '/data');
@@ -36,7 +41,8 @@ async function submitForm(event) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await fetchConfig();
     fetchHalfLifeData();
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('end').value = today;
