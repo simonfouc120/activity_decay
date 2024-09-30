@@ -1,5 +1,8 @@
+const URL = 'https://activitydecayapi.vercel.app';
+const URL_LOCAL = 'http://localhost:5000';
+
 async function fetchHalfLifeData() {
-    const response = await fetch('http://127.0.0.1:5000/data');
+    const response = await fetch(URL_LOCAL + '/data');
     const data = await response.json();
     const select = document.getElementById('element');
     for (const [isotope, halfLife] of Object.entries(data)) {
@@ -16,7 +19,7 @@ async function submitForm(event) {
     const initialActivity = document.getElementById('initial-activity').value;
     const start = document.getElementById('start').value;
     const end = document.getElementById('end').value;
-    const response = await fetch('http://127.0.0.1:5000/calculate', {
+    const response = await fetch(URL_LOCAL + '/calculate', {
         method: 'POST',
         mode: 'cors',
         headers: {

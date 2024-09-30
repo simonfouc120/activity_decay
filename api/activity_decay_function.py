@@ -1,8 +1,4 @@
-import math
-import numpy as np
-
 # Do a function that do a print of "Activity Decay " in the terminal but in very large and with a frame arount 
-
 def print_activity_decay():
     message = "Activity Decay Calculator"
     border = "*" * (len(message) + 16)

@@ -1,11 +1,16 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from datetime import datetime
-import half_time_lib
+import lib.half_time_lib as half_time_lib
 import activity_decay_function as activity_func
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # Enable CORS for all routes and origins
+
+@app.route('/')
+def index():
+    return "Hello, World!"
 
 @app.route('/calculate', methods=['POST', 'OPTIONS'])
 def calculate():
@@ -35,12 +40,12 @@ def calculate():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-
-
 @app.route('/data', methods=['GET'])
 def get_half_life_data():
     half_life_data = half_time_lib.get_all_half_life_data()
     return jsonify(half_life_data)
 
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

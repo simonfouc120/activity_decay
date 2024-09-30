@@ -1,5 +1,5 @@
 from datetime import datetime
-import half_time_lib
+import lib.half_time_lib as half_time_lib
 import activity_decay_function as activity_func 
 
 if __name__ == "__main__":    
